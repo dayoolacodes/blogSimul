@@ -14,10 +14,10 @@ class NewPost extends Component {
     postHandler = () =>{
         const posts = {
             title: this.state.post,
-            content: this.state.content,
+            body: this.state.content,
             author: this.state.author
         }
-        Axios.post('http://jsonplaceholder.typicode.com/posts/', posts)
+        Axios.post('/posts', posts)
         .then(response => console.log(response))
     }
     render () {
