@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Axios from 'axios';
 
 Axios.defaults.baseURL = "http://jsonplaceholder.typicode.com"
+Axios.defaults.headers.common['Authorization'] = "Auth Token"
 
 Axios.interceptors.request.use(request => {
     console.log(request)
