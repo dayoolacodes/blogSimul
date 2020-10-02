@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 
 import Post from '../../components/Post/Post';
-import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
+import FullPost from './FullPost/FullPost';
+import NewPost from './NewPost/NewPost';
 import './Blog.css';
 import axios from 'axios';
 
 class Blog extends Component {
-    state = {
-        posts: [],
-        clickedId: null,
-        clickedContent: null
-    }
+  
 
     componentDidMount (){
         axios.get('http://jsonplaceholder.typicode.com/posts')
@@ -33,14 +29,7 @@ class Blog extends Component {
     }
 
     render () {
-        const posts = this.state.posts.map(post => {
-            return <Post
-            key={post.id} 
-            title={post.title} 
-            author={post.author} 
-            clicked={()=>this.handlePost(post.id)}
-            />
-        })
+       
         return (
             <div className="Blog">
                 <header>
@@ -51,12 +40,7 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <section className="Posts">
-                    {posts}
-                    {/* <Post />
-                    <Post />
-                    <Post /> */}
-                </section>
+                
                 <section>
                     <FullPost id={this.state.clickedId} />
                 </section>
